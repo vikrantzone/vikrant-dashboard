@@ -1,0 +1,45 @@
+body.light {
+  background: #f0f4f7;
+  color: #2c3e50;
+}
+body.dark {
+  background: #1e1e1e;
+  color: #fff;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+th, td {
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+.dark table, .dark th, .dark td {
+  background-color: #2a2a2a;
+  color: #fff;
+  border-color: #444;
+}
+.dark th {
+  background: #3a3a3a;
+}
+button {
+  margin: 5px;
+  padding: 8px 12px;
+  border: none;
+  background: #2e86c1;
+  color: white;
+  cursor: pointer;
+}
+button:hover {
+  background: #1b4f72;
+}
+.login-screen, .role-select {
+  text-align: center;
+  margin-top: 100px;
+}
+.filters {
+  margin: 20px 0;
+  text-align: center;
+}

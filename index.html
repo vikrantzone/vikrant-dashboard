@@ -1,0 +1,67 @@
+<!-- See Copilot Pages to edit this: http://aka.ms/copilot-pages-help -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Vikrant School Dashboard</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body class="light">
+
+  <!-- Role Selection -->
+  <div id="roleSelect" class="role-select">
+    <h2>Welcome to Vikrant Public School</h2>
+    <p>Select your role:</p>
+    <button onclick="enterRole('admin')">🎓 Principal</button>
+    <button onclick="enterRole('parent')">👨‍👩‍👧 Parent</button>
+  </div>
+
+  <!-- Admin Login -->
+  <div id="loginScreen" class="login-screen">
+    <h2>Principal Login</h2>
+    <input type="password" id="passwordInput" placeholder="Enter password" />
+    <button onclick="validateLogin()">Login</button>
+    <p id="loginError"></p>
+  </div>
+
+  <!-- Dashboard -->
+  <div id="dashboard" class="dashboard" style="display:none;">
+    <h1>📘 Student Performance Dashboard</h1>
+    <button onclick="toggleTheme()">🌓 Toggle Theme</button>
+    <button class="admin-only" onclick="syncToGoogleSheet()">🔄 Sync to Google Sheets</button>
+    <button class="admin-only" onclick="sendEmailTrigger()">📬 Send Report Cards</button>
+    <button class="admin-only" onclick="downloadAllPDFs()">📁 Export All PDFs</button>
+
+    <div class="filters">
+      <label>Filter Attendance below: </label>
+      <input type="number" id="filterAttendance" value="80" min="0" max="100" />
+      <button onclick="applyFilter()">Apply</button>
+      <button onclick="resetFilter()">Reset</button>
+    </div>
+
+    <table id="studentTable">
+      <thead>
+        <tr>
+          <th onclick="sortTable(0)">Name</th>
+          <th onclick="sortTable(1)">Attendance</th>
+          <th onclick="sortTable(2)">Marks</th>
+          <th>Behavior</th>
+          <th>Discipline</th>
+          <th>Remarks</th>
+          <th>Email</th>
+          <th class="admin-only">Download</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody"></tbody>
+    </table>
+
+    <canvas id="performanceChart" height="300"></canvas>
+  </div>
+
+  <script src="assets/js/theme.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+  <script src="assets/js/email.js"></script>
+</body>
+</html>
